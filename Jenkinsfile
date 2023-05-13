@@ -17,7 +17,7 @@ pipeline {
         stage ("Sonarqube scan") {
           steps{
           withSonarQubeEnv('sonar') {  
-        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geo'
+        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=fger91_maven-test'
                 }
   
           }
@@ -35,7 +35,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = "docker.build registry + ":$BUILD_NUMBER"
                 } 
             }
         }
